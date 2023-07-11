@@ -2,10 +2,9 @@ footer{
   font-size: small;
   text-align: center;
 }
-header{
+h1{
   text-align: center;
-  font-size: 40px;
-  font-weight: 800;
   margin-top: 30px;
   padding: 20px;
 }
+
