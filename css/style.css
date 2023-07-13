@@ -8,3 +8,7 @@ h1{
   padding: 20px;
 }
 
+#city{
+  display:block;
+  margin: 20px auto;
+}
