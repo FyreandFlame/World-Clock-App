@@ -20,19 +20,27 @@ runTime();
 setInterval(runTime, 1000);
 
 function updateCity(event){
+  function reloadTime(){
   let cityTimeZone = event.target.value;
+  if (cityTimeZone ==="current"){
+    cityTimeZone = moment.tz.guess()
+  }
   let cityRename = cityTimeZone.replace("_", " ").split("/")[1];
-
-  let cityTime = moment().tz(cityTimeZone);
+   let cityTime = moment().tz(cityTimeZone);
   let locationElement = document.querySelector("#location");
+  
   locationElement.innerHTML = `<div class="cities">
   <div>
     <h2>${cityRename}</h2>
     <div class="date">${cityTime.format("dddd Mo MMMM YYYY")}</div>
   </div>
   <div>
-    <div class="time">${cityTime.format("hh:mm:ss [<small>]a[</small>]")}</div>`
-   }
+    <div class="time">${cityTime.format("hh:mm:ss [<small>]a[</small>]")}</div>`;
+  }
+  setInterval(reloadTime,1000)
+        }
+
+       
 
 let citiesSelect = document.querySelector("#city");
 citiesSelect.addEventListener("change", updateCity);
